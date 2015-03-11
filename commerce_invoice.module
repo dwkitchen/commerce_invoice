@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Defines the core Commerce invoice entity type and API functions to manage
+ * invoices and interact with them.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_invoice_theme() {
+  return array(
+    'commerce_invoice_add_list' => array(
+      'variables' => array('types' => NULL),
+      'file' => 'commerce_invoice.pages.inc',
+      'template' => 'commerce-invoice-add-list',
+    ),
+  );
+}

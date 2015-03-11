@@ -1,0 +1,11 @@
+entity.commerce_invoice.add_page:
+  route_name: entity.commerce_invoice.add_page
+  title: 'Create a new invoice'
+  appears_on:
+    - entity.commerce_invoice.collection
+
+entity.commerce_invoice_type.add_form:
+  route_name: entity.commerce_invoice_type.add_form
+  title: 'Add a new invoice type'
+  appears_on:
+    - entity.commerce_invoice_type.collection

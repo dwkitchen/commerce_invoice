@@ -1,0 +1,18 @@
+commerce_invoice.invoice_configuration:
+  title: Invoice configuration
+  route_name: commerce_invoice.invoice_configuration
+  parent: commerce.configuration
+  description: 'Configure your invoice settings.'
+  weight: 10
+
+entity.commerce_invoice.collection:
+  title: Invoices
+  route_name: entity.commerce_invoice.collection
+  parent: commerce.admin_commerce
+  description: 'Manage your invoices.'
+
+entity.commerce_invoice_type.collection:
+  title: Invoice types
+  route_name: entity.commerce_invoice_type.collection
+  parent: commerce_invoice.invoice_configuration
+  description: 'Manage your invoice types.'

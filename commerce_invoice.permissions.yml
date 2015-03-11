@@ -1,0 +1,9 @@
+'administer invoices':
+  title: 'Administer invoices'
+  description: 'Allows users to create, update, and delete invoices.'
+  'restrict access': TRUE
+
+'administer invoice types':
+  title: 'Administer invoice types'
+  description: 'Allows users to create, update, and delete invoice types.'
+  'restrict access': TRUE

@@ -1,0 +1,3 @@
+id: 'invoice'
+label: 'Invoice'
+description: 'A simple default invoice type.'

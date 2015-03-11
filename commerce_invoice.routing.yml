@@ -1,0 +1,101 @@
+commerce_invoice.invoice_configuration:
+  path: '/admin/commerce/config/invoice'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Invoice configuration'
+  requirements:
+    _permission: 'access administration pages'
+
+entity.commerce_invoice.add_page:
+  path: '/admin/commerce/invoices/add'
+  defaults:
+    _title: 'Create a new invoice'
+    _bundle_type: commerce_invoice_type
+    _controller: '\Drupal\commerce\Controller\AddController::addPage'
+  requirements:
+    _entity_create_access: 'commerce_invoice'
+
+entity.commerce_invoice.add_form:
+  path: '/admin/commerce/invoices/add/{commerce_invoice_type}'
+  defaults:
+    _controller: '\Drupal\commerce\Controller\AddController::addForm'
+    _title_callback: '\Drupal\commerce\Controller\AddController::addFormTitle'
+  options:
+    parameters:
+      commerce_invoice_type:
+        type: entity:commerce_invoice_type
+        with_config_overrides: TRUE
+  requirements:
+    _entity_create_access: 'commerce_invoice'
+
+entity.commerce_invoice.admin_form:
+  path: '/admin/commerce/config/invoice-types/{commerce_invoice_type}'
+  defaults:
+    _entity_form: 'commerce_invoice_type.edit'
+    _title: 'Edit an invoice type'
+  requirements:
+    _entity_access: 'commerce_invoice_type.update'
+
+entity.commerce_invoice.delete_form:
+  path: '/admin/commerce/invoices/{commerce_invoice}/delete'
+  defaults:
+    _entity_form: commerce_invoice.delete
+    _title: 'Delete invoice'
+  requirements:
+    _entity_access: 'commerce_invoice.delete'
+
+entity.commerce_invoice_type.collection:
+  path: '/admin/commerce/config/invoice-types'
+  defaults:
+    _entity_list: 'commerce_invoice_type'
+    _title: 'Invoice types'
+  requirements:
+    _permission: 'administer invoice types'
+
+entity.commerce_invoice_type.admin_form:
+  path: '/admin/commerce/config/invoice-types/{commerce_invoice_type}'
+  defaults:
+    _entity_form: 'commerce_invoice_type.edit'
+    _title: 'Edit an invoice type'
+  requirements:
+    _entity_access: 'commerce_invoice_type.update'
+
+entity.commerce_invoice.edit_form:
+  path: '/admin/commerce/invoices/{commerce_invoice}/edit'
+  defaults:
+    _entity_form: commerce_invoice.edit
+    _title: 'Edit invoice'
+  requirements:
+    _entity_access: 'commerce_invoice.update'
+
+entity.commerce_invoice.collection:
+  path: '/admin/commerce/invoices'
+  defaults:
+    _entity_list: 'commerce_invoice'
+    _title: 'Invoices list'
+  requirements:
+    _permission: 'administer invoices'
+
+entity.commerce_invoice_type.edit_form:
+  path: '/admin/commerce/config/invoice-types/{commerce_invoice_type}/edit'
+  defaults:
+    _entity_form: commerce_invoice_type.edit
+    _title: 'Edit invoice type'
+  requirements:
+    _entity_access: 'commerce_invoice_type.update'
+
+entity.commerce_invoice_type.add_form:
+  path: '/admin/commerce/config/invoice-types/add'
+  defaults:
+    _entity_form: 'commerce_invoice_type.add'
+    _title: 'Add a new invoice type'
+  requirements:
+    _entity_create_access: 'commerce_invoice_type'
+
+entity.commerce_invoice_type.delete_form:
+  path: '/admin/commerce/config/invoice-types/{commerce_invoice_type}/delete'
+  defaults:
+    _entity_form: 'commerce_invoice_type.delete'
+    _title: 'Delete an invoice type'
+  requirements:
+    _entity_access: 'commerce_invoice_type.delete'
